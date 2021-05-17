@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>render 100000 data</title>
+</head>
+
+<body>
+  <ul id="root">
+  </ul>
+</body>
+<script>
+
+  var root = document.getElementById("root");
+
+  setTimeout(function () {
+    var k = 0;
+    var root = document.getElementById("root");
+    for (var i = 0; i < 10000; i++) {
+      k += new Date - 0;
+      var dom = document.createElement("div");
+      dom.innerHTML = k + Math.random()
+      root.appendChild(dom);
+      dom.style.cssText = "background:" + randomHexColor() + ";height:30px;";
+    }
+  }, 3000);
+
+</script>
+
+</html>

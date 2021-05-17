@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>event loop & ui thread</title>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+<script>
+  setTimeout(() => alert(1), 0)
+  let dom = document.getElementById('root')
+  dom.innerHTML = '2'
+  Promise.resolve().then(() => alert(3))
+</script>
+</html>
