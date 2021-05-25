@@ -16,17 +16,32 @@
 
   var root = document.getElementById("root");
 
-  setTimeout(function () {
-    var k = 0;
-    var root = document.getElementById("root");
-    for (var i = 0; i < 10000; i++) {
-      k += new Date - 0;
-      var dom = document.createElement("div");
-      dom.innerHTML = k + Math.random()
-      root.appendChild(dom);
-      dom.style.cssText = "background:" + randomHexColor() + ";height:30px;";
+  let ul = document.getElementById('root');
+// 插入十万条数据
+let total = 50000;
+// 一次插入 20 条
+let once = 20;
+//总页数
+let page = total/once
+//每条记录的索引
+let index = 0;
+//循环加载数据
+function loop(curTotal,curIndex){
+    if(curTotal <= 0){
+        return false;
     }
-  }, 3000);
+    //每页多少条
+    let pageCount = Math.min(curTotal , once);
+    window.requestAnimationFrame(function(){
+        for(let i = 0; i < pageCount; i++){
+            let li = document.createElement('li');
+            li.innerText = curIndex + i + ' : ' + ~~(Math.random() * total)
+            ul.appendChild(li)
+        }
+        loop(curTotal - pageCount,curIndex + pageCount)
+    })
+}
+loop(total,index);
 
 </script>
 
