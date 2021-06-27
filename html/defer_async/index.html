@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>defer / async</title>
+</head>
+<script async src="./async.js"></script>
+<script defer src="./defer.js"></script>
+
+<body>
+  <div id="root">hello</div>
+</body>
+</html>
+
+<!-- 相同点 -->
+<!--
+1:defer 以及 async 都是异步的
+2:并且不会阻塞其他内容执行 
+-->
+<!-- 不同点 -->
+<!-- 
+async 执行时间不确定
+defer 在dom加载完成之后，DOMContentloaded之前执行
+-->
