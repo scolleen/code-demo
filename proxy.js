@@ -11,4 +11,4 @@ let obj = new Proxy({}, {
 
 obj.count = 1
 
-++obj.count 
+++obj.count
